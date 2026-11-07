@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Placeholder illustration for featured product 3">
+  <defs><linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3F434A"/><stop offset="1" stop-color="#34373C"/></linearGradient></defs>
+  <rect width="800" height="800" fill="url(#bg3)"/>
+  <circle cx="400" cy="400" r="330" fill="none" stroke="#F4F2ED" stroke-opacity="0.08" stroke-width="2"/>
+  <circle cx="400" cy="400" r="250" fill="#FC0F0F" fill-opacity="0.09"/>
+  <g><rect x="226" y="262" width="348" height="226" rx="24" stroke="#F4F2ED" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M400 488 V545 M332 545 H468" stroke="#F4F2ED" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M375 330 L375 420 L450 375 Z" stroke="#FC0F0F" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M355 224 A64 64 0 0 1 445 224" stroke="#FC0F0F" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M322 196 A112 112 0 0 1 478 196" stroke="#FC0F0F" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+  <text x="40" y="758" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="22" fill="#F4F2ED" fill-opacity="0.5">Placeholder image · 1:1</text>
+</svg>

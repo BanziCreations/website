@@ -1,30 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name='impact-site-verification' value='63b7dd2b-4295-419b-b18e-c8bc0bd2df8e'>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO METADATA -->
-<title>Triple Aero Pro Max: Triple-Screen Laptop Display | ILVETOtech</title>
-
-<meta name="description" content="Discover the Triple Aero Pro Max by Aura Displays. Explore a triple-screen laptop display solution designed to expand your workspace and improve productivity.">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://www.ilvetotech.com/">
-
-<!-- OPEN GRAPH: FACEBOOK, LINKEDIN AND SOCIAL SHARING -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="ILVETOtech">
-<meta property="og:title" content="Triple Aero Pro Max | ILVETOtech">
-<meta property="og:description" content="Three screens. One laptop. Explore the Triple Aero Pro Max and expand your productivity workspace.">
-<meta property="og:url" content="https://www.ilvetotech.com/">
-
-<!-- TWITTER / X SHARING -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Triple Aero Pro Max | ILVETOtech">
-<meta name="twitter:description" content="Explore the Triple Aero Pro Max by Aura Displays. Three screens, one laptop.">
-
+<title>Triple Aero Pro Max, Three Screens, One Laptop | Aura Displays</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -481,6 +460,7 @@
 
   ::selection{background:var(--signal);color:var(--signal-ink);}
 </style>
+<link rel="stylesheet" href="assets/featured-products.css">
 </head>
 <body>
 
@@ -961,6 +941,20 @@
   </div>
 </section>
 
+<!-- ================= FEATURED PRODUCTS (affiliate) =================
+     Cards are rendered from assets/products-data.js by assets/featured-products.js.
+     Each card links to its own page in /products/, never straight to a retailer. -->
+<section class="section featured-products" id="featured-products" aria-labelledby="fpHeading">
+  <div class="wrap">
+    <div class="fp-head">
+      <h2 class="heading-divider" id="fpHeading">Featured Products</h2>
+      <p class="lede">Discover our handpicked selection of innovative products, smart technology, and solutions designed to make everyday life better.</p>
+    </div>
+    <div class="fp-grid" id="fpGrid"></div>
+    <noscript><p class="fp-noscript">Turn on JavaScript to browse the featured products.</p></noscript>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="footer-top">
@@ -1039,5 +1033,7 @@
   });
 </script>
 
+<script src="assets/products-data.js"></script>
+<script src="assets/featured-products.js"></script>
 </body>
 </html>

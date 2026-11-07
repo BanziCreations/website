@@ -1,0 +1,149 @@
+/* =====================================================================
+   ILVETOTECH product information pages (products/product-N.html)
+   Self-contained, but uses exactly the same tokens, fonts, buttons and
+   orange divider motif as the homepage so the pages feel like one site.
+   ===================================================================== */
+:root{
+  --graphite:#15171A; --panel:#1D2025; --paper:#F4F2ED; --paper-2:#EAE7E0;
+  --ink:#1B1D21; --steel:#5B6169; --aluminum:#AEB4BB;
+  --signal:#FC0F0F; --signal-ink:#FFFFFF;
+  --line-dark:rgba(255,255,255,.12); --line-light:rgba(27,29,33,.12);
+  --font-display:'Archivo', sans-serif; --font-body:'Inter', sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--font-body);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+h1,h2,h3{font-family:var(--font-display);margin:0;line-height:1.08;letter-spacing:-0.01em;}
+p{margin:0;line-height:1.65;font-size:16px;}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px;}
+
+.skip-link{position:absolute;left:-9999px;top:8px;z-index:200;background:var(--signal);color:#fff;padding:10px 16px;font-weight:700;text-decoration:none;border-radius:2px;}
+.skip-link:focus{left:8px;}
+
+/* Same button as the homepage */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--signal);color:var(--signal-ink);
+  font-family:var(--font-display);font-weight:700;font-size:16px;
+  padding:16px 30px;border:none;cursor:pointer;text-decoration:none;
+  transition:transform .15s ease, background .15s ease;border-radius:2px;
+}
+.btn:hover{background:#FF3E3E;transform:translateY(-1px);}
+
+/* Same orange half-width divider the homepage puts under headings */
+.rule{display:inline-block;}
+.rule::after{content:"";display:block;width:50%;height:2px;background:var(--signal);margin-top:14px;}
+
+/* ---- Header ------------------------------------------------------- */
+.pp-header{position:sticky;top:0;z-index:100;background:rgba(21,23,26,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-dark);padding:14px 0;}
+.pp-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.pp-logo{display:block;flex-shrink:0;}
+.pp-logo img{height:40px;width:auto;}
+.pp-nav{display:flex;align-items:center;gap:6px;}
+.pp-nav a{color:#fff;text-decoration:none;font-family:var(--font-display);font-weight:600;font-size:13.5px;padding:8px 12px;transition:color .15s ease;}
+.pp-nav a:hover{color:var(--signal);}
+
+/* ---- Breadcrumb --------------------------------------------------- */
+.pp-crumbs{padding-top:28px;}
+.pp-crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;font-size:14px;color:var(--steel);}
+.pp-crumbs li+li::before{content:"/";margin-right:6px;color:var(--aluminum);}
+.pp-crumbs a{text-underline-offset:3px;}
+.pp-crumbs a:hover{color:var(--ink);text-decoration:underline;}
+.pp-crumbs [aria-current]{color:var(--ink);font-weight:600;}
+
+/* ---- Hero --------------------------------------------------------- */
+.pp-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;padding-top:32px;padding-bottom:88px;}
+.pp-media{aspect-ratio:1 / 1;overflow:hidden;background:var(--paper-2);border:1px solid var(--line-light);}
+.pp-media img{width:100%;height:100%;object-fit:cover;}
+.pp-category{font-size:14px;font-weight:600;color:var(--steel);margin-bottom:14px;}
+.pp-title{font-size:clamp(34px,4.6vw,56px);font-weight:800;}
+.pp-intro{margin-top:26px;max-width:520px;font-size:clamp(17px,1.6vw,19px);line-height:1.6;color:var(--steel);}
+.pp-buy{margin-top:34px;}
+.pp-buy .btn,.pp-cta .btn{font-size:18px;padding:18px 44px;}
+
+/* Affiliate disclosure: always visible, normal-size text beside the buy button */
+.pp-disclosure{
+  margin-top:18px;max-width:520px;padding:14px 16px;
+  border-left:3px solid var(--signal);background:#fff;
+  font-size:14px;line-height:1.6;color:var(--ink);
+}
+.pp-note{margin-top:12px;font-size:13px;color:var(--steel);}
+
+/* ---- Content sections --------------------------------------------- */
+.pp-section{padding:72px 0;border-top:1px solid var(--line-light);}
+.pp-section h2{font-size:clamp(26px,3.2vw,36px);font-weight:700;}
+.pp-overview{margin-top:28px;max-width:720px;}
+.pp-overview p{color:var(--steel);}
+.pp-overview p+p{margin-top:16px;}
+
+.pp-features{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px;}
+.pp-features li{position:relative;padding:24px 0 26px 24px;border-top:1px solid var(--line-light);}
+.pp-features li::before{content:"";position:absolute;left:0;top:36px;width:12px;height:2px;background:var(--signal);}
+.pp-features h3{font-size:20px;font-weight:700;line-height:1.2;}
+.pp-features p{margin-top:8px;font-size:15.5px;color:var(--steel);}
+
+.pp-specs{width:100%;max-width:860px;margin-top:28px;border-collapse:collapse;}
+.pp-specs th,.pp-specs td{padding:16px 0;border-top:1px solid var(--line-light);text-align:left;vertical-align:top;font-size:15.5px;line-height:1.5;}
+.pp-specs tr:last-child th,.pp-specs tr:last-child td{border-bottom:1px solid var(--line-light);}
+.pp-specs th{width:36%;padding-right:20px;font-family:var(--font-display);font-weight:600;}
+.pp-specs td{color:var(--steel);}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+/* ---- Closing buy band --------------------------------------------- */
+.pp-cta{background:var(--graphite);color:#fff;text-align:center;padding:88px 0;}
+.pp-cta h2{font-size:clamp(28px,4vw,44px);font-weight:700;color:#fff;}
+.pp-cta p.lead{margin:18px auto 0;max-width:520px;color:var(--aluminum);font-size:17px;}
+.pp-cta .btn{margin-top:32px;}
+.pp-cta .pp-disclosure{margin:22px auto 0;text-align:left;background:rgba(255,255,255,.06);color:var(--aluminum);}
+.pp-back{display:inline-block;margin-top:28px;color:var(--aluminum);font-weight:600;text-underline-offset:4px;}
+.pp-back:hover{color:#fff;}
+
+/* ---- Browse other products ---------------------------------------- */
+.pp-upsell-lede{margin-top:16px;max-width:560px;color:var(--steel);}
+.pp-others{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:32px;}
+.pp-mini{display:block;text-decoration:none;background:#fff;border:1px solid var(--line-light);border-radius:2px;overflow:hidden;transition:transform .25s ease, border-color .25s ease;}
+.pp-mini:hover{transform:translateY(-3px);border-color:rgba(27,29,33,.3);}
+.pp-mini .thumb{display:block;aspect-ratio:1 / 1;overflow:hidden;background:var(--paper-2);}
+.pp-mini .thumb img{width:100%;height:100%;object-fit:cover;}
+.pp-mini .label{display:block;padding:16px 18px 4px;font-family:var(--font-display);font-weight:700;font-size:18px;line-height:1.25;}
+.pp-mini .teaser{display:block;padding:0 18px 18px;font-size:14px;line-height:1.5;color:var(--steel);}
+.pp-others-foot{margin-top:30px;}
+.pp-others-foot a{font-weight:600;text-underline-offset:4px;}
+.pp-others-foot a:hover{color:var(--signal);}
+
+/* ---- Footer ------------------------------------------------------- */
+.pp-footer{background:var(--graphite);color:var(--aluminum);padding:40px 0;border-top:1px solid var(--line-dark);}
+.pp-footer-top{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:28px;margin-bottom:24px;border-bottom:1px solid var(--line-dark);}
+.pp-footer-top img{height:26px;width:auto;}
+.pp-footer-nav{display:flex;gap:24px;flex-wrap:wrap;}
+.pp-footer-nav a{color:var(--aluminum);text-decoration:none;font-family:var(--font-display);font-weight:600;font-size:13px;transition:color .15s ease;}
+.pp-footer-nav a:hover{color:var(--signal);}
+.pp-footer p{max-width:900px;margin:0 auto;text-align:center;font-size:12.5px;line-height:1.7;color:var(--aluminum);}
+
+/* ---- Responsive --------------------------------------------------- */
+@media (max-width:900px){
+  .pp-hero{grid-template-columns:1fr;gap:36px;padding-bottom:64px;}
+  .pp-features{grid-template-columns:1fr;}
+  .pp-others{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+  .pp-mini .label{font-size:16px;padding:14px 14px 4px;}
+  .pp-mini .teaser{padding:0 14px 14px;font-size:13px;}
+  .pp-section{padding:56px 0;}
+  .pp-cta{padding:64px 0;}
+}
+@media (max-width:560px){
+  .pp-logo img{height:34px;}
+  .pp-nav .pp-nav-secondary{display:none;}
+  .pp-buy .btn,.pp-cta .btn{width:100%;padding:17px 20px;}
+  .pp-others{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+  .pp-mini .label{padding:10px 8px 10px;font-size:13px;}
+  .pp-mini .teaser{display:none;}
+  .pp-specs th{width:42%;}
+  .pp-footer-top{flex-direction:column;align-items:flex-start;}
+}
+@media (prefers-reduced-motion:reduce){
+  .btn,.pp-mini{transition:none;}
+  .btn:hover,.pp-mini:hover{transform:none;}
+}

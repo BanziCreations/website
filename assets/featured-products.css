@@ -1,0 +1,110 @@
+/* =====================================================================
+   Featured Products section (homepage, sits directly above the footer)
+   Reuses the existing site tokens (--paper, --ink, --steel, --signal ...)
+   and the existing .wrap / .section / .lede / .heading-divider classes.
+   ===================================================================== */
+
+.featured-products{background:var(--paper);}
+
+.fp-head{max-width:640px;margin-bottom:48px;}
+.fp-head .lede{margin-top:22px;color:var(--steel);}
+
+.fp-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));   /* desktop: 4 across */
+  gap:24px;
+}
+
+/* ---- Card -------------------------------------------------------- */
+.fp-card{
+  position:relative;                 /* anchors the stretched link */
+  display:flex;flex-direction:column;min-width:0;
+  background:#fff;
+  border:1px solid var(--line-light);
+  border-radius:2px;
+  overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.fp-card::after{                     /* thin brand-colour bar that draws in on hover */
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:var(--signal);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .35s ease;
+}
+.fp-card:hover,
+.fp-card:focus-within{
+  transform:translateY(-4px);
+  border-color:rgba(27,29,33,.28);
+  box-shadow:0 16px 34px -16px rgba(27,29,33,.28);
+}
+.fp-card:hover::after,
+.fp-card:focus-within::after{transform:scaleX(1);}
+
+.fp-media{aspect-ratio:1 / 1;overflow:hidden;background:var(--paper-2);}
+.fp-media img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .6s ease;
+}
+.fp-card:hover .fp-media img{transform:scale(1.045);}
+
+.fp-body{display:flex;flex-direction:column;flex:1;padding:22px 22px 26px;}
+.fp-card .fp-name{
+  font-size:20px;font-weight:700;line-height:1.2;letter-spacing:-0.005em;
+  overflow-wrap:break-word;
+}
+.fp-card .fp-desc{
+  margin:10px 0 24px;
+  font-size:15px;line-height:1.6;color:var(--steel);
+  overflow-wrap:break-word;
+}
+
+/* "Learn More": outlined by default, fills with brand colour on card hover/focus.
+   Its ::after stretches over the whole card so image + text are all clickable,
+   while the visible link stays the single, keyboard-focusable control. */
+.fp-link{
+  margin-top:auto;align-self:flex-start;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:700;font-size:15px;line-height:1.2;
+  color:var(--ink);text-decoration:none;
+  padding:11px 22px;
+  border:2px solid var(--ink);border-radius:2px;background:transparent;
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+.fp-link::after{content:"";position:absolute;inset:0;z-index:1;}
+.fp-card:hover .fp-link,
+.fp-link:focus-visible{background:var(--signal);border-color:var(--signal);color:#fff;}
+
+/* Keyboard focus: ring around the whole card where :has() is supported */
+.fp-link:focus-visible{outline:3px solid var(--signal);outline-offset:3px;}
+@supports selector(:has(*)){
+  .fp-link:focus-visible{outline:none;}
+  .fp-card:has(.fp-link:focus-visible){outline:3px solid var(--signal);outline-offset:4px;}
+}
+
+.fp-noscript{color:var(--steel);}
+
+/* ---- Tablet: 2 columns x 2 rows ---------------------------------- */
+@media (max-width:980px){
+  .fp-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+}
+
+/* ---- Mobile: stays 2 columns, tighter spacing -------------------- */
+@media (max-width:600px){
+  .fp-head{margin-bottom:32px;}
+  .fp-grid{gap:14px;}
+  .fp-body{padding:14px 14px 16px;}
+  .fp-card .fp-name{font-size:16px;}
+  .fp-card .fp-desc{font-size:13.5px;line-height:1.55;margin:8px 0 16px;}
+  .fp-link{align-self:stretch;padding:11px 8px;font-size:14px;}
+}
+
+/* ---- Very narrow phones: single column --------------------------- */
+@media (max-width:340px){
+  .fp-grid{grid-template-columns:1fr;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fp-card,.fp-card::after,.fp-media img,.fp-link{transition:none;}
+  .fp-card:hover,.fp-card:focus-within{transform:none;}
+  .fp-card:hover .fp-media img{transform:none;}
+}
